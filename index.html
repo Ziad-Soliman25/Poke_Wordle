@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poke Wordle</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- nav bar -->
     <div id="nav-bar">
+        <div id="title">
+            <h1>Poké Wordle Unlimited</h1>
+        </div>
+        <img class="question" src="./assets/question_mark.png" alt="question_mark">
         <div class="poke-images">
             <img src="./assets/bulbasaur.png" alt="bulbasaur">
             <img src="./assets/charmander.png" alt="charmander">
             <img src="./assets/squirtle.png" alt="squirtle">
         </div>
-        <h1>Poké Wordle Unlimited</h1>
-        <img src="./assets/question_mark.png" alt="question_mark">
     </div>
 
     <!-- Banner -->
     <div id="banner">
-        <h3>Can you guess the Pokémon! You have 7 guesses left</h3>
+        <h3>Can you guess the Pokémon! <br> You have 7 guesses left</h3>
     </div>
 
     <!-- main -->
@@ -43,36 +47,47 @@
         </div>
         <!-- main bottom -->
         <div id="main-bottom">
-            <div class="types">
-                <div id="type-normal" class="types">Normal</div>
-                <div id="type-fire" class="types">Fire</div>
-                <div id="type-water" class="types">Water</div>
-                <div id="type-grass" class="types">Grass</div>
-                <div id="type-electirc" class="types">Electric</div>
-                <div id="type-ice" class="types">Ice</div>
-                <br>
-                <div id="type-fighting" class="types">Fighting</div>
-                <div id="type-poison" class="types">Poison</div>
-                <div id="type-ground" class="types">Ground</div>
-                <div id="type-flying" class="types">Flying</div>
-                <div id="type-psychic" class="types">Ground</div>
-                <div id="type-bug" class="types">Bug</div>
-                <br>
-                <div id="type-rock" class="types">Rock</div>
-                <div id="type-ghost" class="types">Ghost</div>
-                <div id="type-dark" class="types">Dark</div>
-                <div id="type-dragon" class="types">Dragon</div>
-                <div id="type-steel" class="types">Steel</div>
-                <div id="type-fairy" class="types">Fairy</div>
-                <div id="type-single-type" class="types">Single-Type</div>
+            <div id="types">
+                <div class="row-types">
+                    <div id="normal" class="types">Normal</div>
+                    <div id="fire" class="types">Fire</div>
+                    <div id="water" class="types">Water</div>
+                    <div id="grass" class="types">Grass</div>
+                    <div id="electric" class="types">Electric</div>
+                    <div id="ice" class="types">Ice</div>
+                </div>
+                <!-- <br> -->
+                <div class="row-types">
+                    <div id="fighting" class="types">Fighting</div>
+                    <div id="poison" class="types">Poison</div>
+                    <div id="ground" class="types">Ground</div>
+                    <div id="flying" class="types">Flying</div>
+                    <div id="psychic" class="types">Psychic</div>
+                    <div id="bug" class="types">Bug</div>
+                </div>
+                <!-- <br> -->
+                <div class="row-types">
+                    <div id="rock" class="types">Rock</div>
+                    <div id="ghost" class="types">Ghost</div>
+                    <div id="dark" class="types">Dark</div>
+                    <div id="dragon" class="types">Dragon</div>
+                    <div id="steel" class="types">Steel</div>
+                    <div id="fairy" class="types">Fairy</div>
+                    <div id="single-type" class="types">Single-Type</div>
+                </div>
             </div>
-            <button>New Game</button>
-            <div class="difficulty">
-                <button></button>
+            <div class="buttons">
+                <button onclick="refreshPage()">New Game</button>
+                <div class="difficulty">
+                    <button>Pokémon Trainer</button>
+                    <button>Pokémon Master</button>
+                </div>
+                <button>Poké Wordle Daily</button>
             </div>
         </div>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
+
 </html>
