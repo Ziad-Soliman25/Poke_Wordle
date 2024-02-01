@@ -14,7 +14,12 @@
         <div id="title">
             <h1>Poké Wordle Unlimited</h1>
         </div>
-        <img class="question" src="./assets/question_mark.png" alt="question_mark">
+        <div id="question-mark">
+            <img id="question" onmouseover="help(this)" onmouseout="remove(this)" src="./assets/question_mark.png" alt="question_mark">
+            <!-- adding help div -->
+            <div id="help-div">
+            </div>
+        </div>
         <div class="poke-images">
             <img src="./assets/bulbasaur.png" alt="bulbasaur">
             <img src="./assets/charmander.png" alt="charmander">
@@ -24,7 +29,7 @@
 
     <!-- Banner -->
     <div id="banner">
-        <h3>Can you guess the Pokémon! <br> You have 7 guesses left</h3>
+        <h3>Can you guess the Pokémon! <br> You have 7 guesses</h3>
     </div>
 
     <!-- main -->
@@ -40,9 +45,13 @@
                     <li>Weight</li>
                 </ul>
             </div>
+            <!-- adding pokeballs -->
+            <div id="pokeballs">
+            </div>
+
             <div class="guess">
-                <input type="text" name="guess" placeholder="Who's that Pokémon?">
-                <button>Submit</button>
+                <input oninput="getPokemon(this)" type="text" name="guess" placeholder="Who's that Pokémon?">
+                <button onmouseover="scale(this, 1.15)" onmouseleave="scale(this, 1)" onclick="search()">Submit</button>
             </div>
         </div>
         <!-- main bottom -->
@@ -77,12 +86,13 @@
                 </div>
             </div>
             <div class="buttons">
-                <button onclick="refreshPage()">New Game</button>
+                <button onclick="refreshPage()" onmouseover="scale(this, 1.25)" onmouseleave="scale(this, 1)">New
+                    Game</button>
                 <div class="difficulty">
-                    <button>Pokémon Trainer</button>
-                    <button>Pokémon Master</button>
+                    <button onmouseover="scale(this, 1.25)" onmouseleave="scale(this, 1)">Pokémon Trainer</button>
+                    <button onmouseover="scale(this, 1.25)" onmouseleave="scale(this, 1)">Pokémon Master</button>
                 </div>
-                <button>Poké Wordle Daily</button>
+                <button onmouseover="scale(this, 1.25)" onmouseleave="scale(this, 1)">Poké Wordle Daily</button>
             </div>
         </div>
     </div>
