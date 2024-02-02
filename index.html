@@ -15,7 +15,7 @@
             <h1>Poké Wordle Unlimited</h1>
         </div>
         <div id="question-mark">
-            <img id="question" onmouseover="help(this)" onmouseout="remove(this)" src="./assets/question_mark.png" alt="question_mark">
+            <img id="question" src="./assets/question_mark.png" alt="question_mark">
             <!-- adding help div -->
             <div id="help-div">
             </div>
@@ -47,10 +47,17 @@
             </div>
             <!-- adding pokeballs -->
             <div id="pokeballs">
+                <div class="pokeball">
+                    <img class="gen" src="./assets/pokeball.png" alt="pokeball">
+                    <img class="type1" src="./assets/pokeball.png" alt="pokeball">
+                    <img class="type2" src="./assets/pokeball.png" alt="pokeball">
+                    <img class="height" src="./assets/pokeball.png" alt="pokeball">
+                    <img class="weight" src="./assets/pokeball.png" alt="pokeball">
+                </div>
             </div>
 
             <div class="guess">
-                <input oninput="getPokemon(this)" type="text" name="guess" placeholder="Who's that Pokémon?">
+                <input id="pokeName" type="text" name="guess" placeholder="Who's that Pokémon?">
                 <button onmouseover="scale(this, 1.15)" onmouseleave="scale(this, 1)" onclick="search()">Submit</button>
             </div>
         </div>
@@ -97,6 +104,7 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="script.js"></script>
 </body>
 

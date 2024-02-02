@@ -1,5 +1,6 @@
 function refreshPage() {
     window.location.reload()
+    // makePokeData()
 }
 
 function scale(element, value) {
@@ -7,33 +8,69 @@ function scale(element, value) {
 }
 
 
-// pokeballs
+// pokeballs and guesses
 var pokeDiv = document.querySelector("#pokeballs");
-var currentPokemon = ""
 
-function getPokemon(element) {
-    console.log(element.value)
-    currentPokemon = element.value;
-}
-
-function makeCoderCard() {
-    var res = `<div class="pokeball">
-                    <img src="./assets/pokeball.png" alt="pokeball">
-                    <img src="./assets/pokeball.png" alt="pokeball">
-                    <img src="./assets/pokeball.png" alt="pokeball">
-                    <img src="./assets/pokeball.png" alt="pokeball">
-                    <img src="./assets/pokeball.png" alt="pokeball">
-                </div>`
-    return res
+function makePokeData() {
+    var res = document.querySelector(".pokeball")
+    res.innerHTML = `
+                    <img class="gen" src="./assets/pokeball.png" alt="pokeball">
+                    <img class="type1" src="./assets/pokeball.png" alt="pokeball">
+                    <img class="type2" src="./assets/pokeball.png" alt="pokeball">
+                    <img class="height" src="./assets/pokeball.png" alt="pokeball">
+                    <img class="weight" src="./assets/pokeball.png" alt="pokeball">
+                    `
+    // return res
     // console.log(res);
 }
 
-async function search() {
-    var response = await fetch("https://pokeapi.co/api/v2/pokemon/" + currentPokemon);
-    var coderData = await response.json();
-    console.log(coderData);
-    pokeDiv.innerHTML = makeCoderCard(coderData) + pokeDiv.innerHTML;
+async function getAnswer() {
+    try {
+        var response = await fetch(`https://pokeapi.co/api/v2/pokemon/` + getRandomInt(809));
+        answer = await response.json()
+        console.log(answer)
+    } catch (e) {
+        console.log("ERROR: " + e)
+    }
+
 }
+var answer;
+getAnswer();
+
+async function search() {
+    var inputElem = document.querySelector('#pokeName')
+    var pokeName = inputElem.value
+
+    if (pokeName === ""){
+        return
+    }
+
+    var response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`);
+    var pokeData = await response.json();
+    console.log(pokeData.name);
+    console.log(answer.name)
+
+    if (pokeData.name == answer.name) {
+        var images = document.querySelectorAll('.pokeball img')
+        // images.src ="./assets/masterball.png"
+        console.log("you were right")
+        images.forEach(image => image.src="./assets/masterball.png")
+        // document.querySelector('div.pokeball img').src ="./assets/masterball.png"
+    }
+    
+    // pokeDiv.innerHTML = makePokeData(pokeData) + pokeDiv.innerHTML;
+    
+}
+
+
+
+
+// answer pokemon
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+
 
 
 
@@ -55,11 +92,10 @@ function makeHelp() {
     return res
 }
 
-function help() {
-    helpDiv.innerHTML = makeHelp() + helpDiv.innerHTML
-}
-
-function remove() {
-    helpDiv.innerHTML = null
-}
-
+$(document).ready(function () {
+    $("#question").hover(function () {
+        helpDiv.innerHTML = makeHelp() + helpDiv.innerHTML;
+    }, function () {
+        helpDiv.innerHTML = null;
+    });
+});
